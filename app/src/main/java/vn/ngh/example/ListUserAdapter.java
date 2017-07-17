@@ -2,10 +2,10 @@ package vn.ngh.example;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -28,21 +28,27 @@ public class ListUserAdapter extends RecyclerView.Adapter<ListUserAdapter.Conten
 
     static class ContentViewHolder extends RecyclerView.ViewHolder {
         private TextView mTextName;
+        private TextView mTextEmail;
+        private ImageView mImageAvatar;
 
         public ContentViewHolder(View itemView) {
             super(itemView);
             mTextName = (TextView) itemView.findViewById(R.id.text_name);
+            mTextEmail = (TextView) itemView.findViewById(R.id.text_email);
+            mImageAvatar = (ImageView) itemView.findViewById(R.id.image_avatar);
         }
-
     }
 
     static class StickyViewHolder extends RecyclerView.ViewHolder {
-        View viewContent;
         private TextView mTextName;
+        private TextView mTextEmail;
+        private ImageView mImageAvatar;
 
         public StickyViewHolder(View itemView) {
             super(itemView);
             mTextName = (TextView) itemView.findViewById(R.id.text_name);
+            mTextEmail = (TextView) itemView.findViewById(R.id.text_email);
+            mImageAvatar = (ImageView) itemView.findViewById(R.id.image_avatar);
         }
     }
 
@@ -70,12 +76,12 @@ public class ListUserAdapter extends RecyclerView.Adapter<ListUserAdapter.Conten
     public void onBindViewHolder(ContentViewHolder holder, int position) {
         if (holder != null) {
             int stickyIndex = getStickyIndex();
-            int itemCount = getItemCount();
             int pos = position >= stickyIndex && stickyIndex != RecyclerView.NO_POSITION
                     ? position + 1 : position;
-            Log.i("onBindViewHolder", "position " + position + " stickyIndex " + stickyIndex + " itemCount " + itemCount + " pos " + pos);
             User user = mUserList.get(pos);
             holder.mTextName.setText(user.getName());
+            holder.mTextEmail.setText(user.getEmail());
+            holder.mImageAvatar.setImageResource(user.getIdAvatar());
         }
     }
 
@@ -91,6 +97,8 @@ public class ListUserAdapter extends RecyclerView.Adapter<ListUserAdapter.Conten
         if (mCurrentUserIndex >= 0 && viewHolder != null) {
             User user = mUserList.get(mCurrentUserIndex);
             viewHolder.mTextName.setText(user.getName());
+            viewHolder.mTextEmail.setText(user.getEmail());
+            viewHolder.mImageAvatar.setImageResource(user.getIdAvatar());
         }
     }
 
