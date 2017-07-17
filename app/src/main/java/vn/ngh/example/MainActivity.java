@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         init();
     }
 
@@ -32,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         StoreUserList storeUserList = StoreUserList.getInstane();
         mListUser = storeUserList.getUserList();
 
+        userStickyIndex = find(mListUser, "Nghia");
         mAdapter = new ListUserAdapter(this, mListUser, userStickyIndex);
         mStickyDecoration = new StickyDecoration(mAdapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
@@ -39,8 +39,16 @@ public class MainActivity extends AppCompatActivity {
         mListUserRecylerView.setHasFixedSize(true);
         mListUserRecylerView.setAdapter(mAdapter);
         mListUserRecylerView.addItemDecoration(mStickyDecoration);
-
-
     }
 
+    // Simple
+    private int find(List<User> userList, String name) {
+        int size = userList.size();
+        User user = null;
+        for (int i = 0; i < size; i++) {
+            user = userList.get(i);
+            if (user.getName().equals(name)) return i;
+        }
+        return -1;
+    }
 }
