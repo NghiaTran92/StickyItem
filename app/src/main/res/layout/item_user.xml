@@ -8,12 +8,15 @@
     android:paddingBottom="@dimen/tiny_space"
     android:paddingTop="@dimen/tiny_space">
 
-    <ImageView
-        android:id="@+id/image_avatar"
+    <TextView
+        android:id="@+id/textAvatar"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:adjustViewBounds="true" />
+        android:background="@android:color/darker_gray"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
 
     <LinearLayout
         android:layout_width="0dp"
@@ -25,14 +28,14 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/text_name"
+            android:id="@+id/textName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@android:color/background_dark"
             android:textSize="@dimen/text_size_large" />
 
         <TextView
-            android:id="@+id/text_email"
+            android:id="@+id/textEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@android:color/holo_red_light"
