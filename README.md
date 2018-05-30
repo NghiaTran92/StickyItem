@@ -1,2 +1,9 @@
 # Sticky Item
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/ztwzwtF0g0s/0.jpg)](http://www.youtube.com/watch?v=ztwzwtF0g0s "StickyItem")
+
+## Demo
+<img src="https://github.com/oTranThanhNghia/StickyItem/blob/kotlin_version/sticky_item.gif"/>
+
+## Java version
+<a href='https://github.com/oTranThanhNghia/StickyItem/tree/master'>https://github.com/oTranThanhNghia/StickyItem/tree/master</a>
+
+# Thanks for watching
